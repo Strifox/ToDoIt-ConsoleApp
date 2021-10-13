@@ -48,10 +48,11 @@ namespace ToDoIt_ConsoleApp.Model
         #endregion
 
 
-        public Person(string firstname, string lastname)
+        public Person(string firstname, string lastname, int personId)
         {
             Firstname = firstname;
             Lastname = lastname;
+            this.personId = personId;
         }
     }
 }

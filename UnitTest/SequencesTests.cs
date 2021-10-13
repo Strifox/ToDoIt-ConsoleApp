@@ -7,7 +7,7 @@ using Xunit;
 
 namespace UnitTest
 {
-    public class DataTests
+    public class SequencesTests
     {
         #region PersonSequencer Tests
 
@@ -15,9 +15,7 @@ namespace UnitTest
         public void NextPersonIdTest()
         {
             //Increments person id
-            PersonSequencer.NextPersonId();
-
-            var personId = PersonSequencer.PersonId;
+            var personId = PersonSequencer.NextPersonId(); 
             var expected = 1;
 
             Assert.Equal(expected, personId);

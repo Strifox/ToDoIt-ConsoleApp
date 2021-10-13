@@ -13,9 +13,9 @@ namespace ToDoIt_ConsoleApp.Data
         /// <summary>
         /// Increments personId for next person.
         /// </summary>
-        public static void NextTodoId()
+        public static int NextTodoId()
         {
-            todoId++;
+            return ++todoId;
         }
 
         /// <summary>

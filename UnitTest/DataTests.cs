@@ -26,13 +26,36 @@ namespace UnitTest
         [Fact]
         public void PersonIdResetTest()
         {
-
             var result = PersonSequencer.PersonId;
             var expected = 0;
 
             Assert.Equal(expected, result);
         }
 
+        #endregion
+
+        #region TodoSequencer Tests
+
+        [Fact]
+        public void NextTodoIdTest()
+        {
+            //Increments person id
+            TodoSequencer.NextTodoId();
+
+            var personId = TodoSequencer.TodoId;
+            var expected = 1;
+
+            Assert.Equal(expected, personId);
+        }
+
+        [Fact]
+        public void TodoIdResetTest()
+        {
+            var result = TodoSequencer.TodoId;
+            var expected = 0;
+
+            Assert.Equal(expected, result);
+        }
         #endregion
     }
 }

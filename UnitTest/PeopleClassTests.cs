@@ -33,10 +33,14 @@ namespace UnitTest
             Assert.IsType<Person>(result);
         }
 
-        [Fact]
-        public void FindByIdTest()
+        [Theory]
+        [InlineData("Erik","Karlsson")]
+        public void FindByIdTest(string firstname, string lastname)
         {
-            var result = people.CreatePerson("Erik", "Karlsson");
+            people.Clear();
+            PersonSequencer.Reset();
+
+            var result = people.CreatePerson(firstname, lastname);
             var expected = people.FindById(1);
 
             Assert.Same(expected, result);
@@ -45,14 +49,18 @@ namespace UnitTest
         [Fact]
         public void ClearTest()
         {
-            people.CreatePerson("Erik", "Karlsson");
             people.Clear();
 
             var result = people.Size();
             var expected = 0;
 
             Assert.Equal(expected, result);
+        }
 
+        private void Clear()
+        {
+            people.Clear();
+            PersonSequencer.Reset();
         }
     }
 }

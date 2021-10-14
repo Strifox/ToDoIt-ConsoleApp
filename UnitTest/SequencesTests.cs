@@ -15,6 +15,8 @@ namespace UnitTest
         public void NextPersonIdTest()
         {
             //Increments person id
+            PersonSequencer.Reset();
+
             var personId = PersonSequencer.NextPersonId(); 
             var expected = 1;
 
@@ -39,6 +41,8 @@ namespace UnitTest
         public void NextTodoIdTest()
         {
             //Increments Todo id
+            PersonSequencer.Reset();
+
             TodoSequencer.NextTodoId();
 
             var personId = TodoSequencer.TodoId;

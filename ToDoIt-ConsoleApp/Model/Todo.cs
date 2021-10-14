@@ -17,10 +17,10 @@ namespace ToDoIt_ConsoleApp.Model
 
         #region Public Properties
 
-        //public int TodoId { get => todoId; }
+        public int TodoId { get => todoId; }
         public string Description { get => description; set => description = value; }
-        //public bool Done { get => done; set => done = value; }
-        //public Person Assignee { get => assignee; set => assignee = value; }
+        public bool Done { get => done; set => done = value; }
+        public Person Assignee { get => assignee; set => assignee = value; }
 
         #endregion
 

@@ -9,6 +9,7 @@ namespace ToDoIt_ConsoleApp.Data
     public class People
     {
         private static Person[] persons = new Person[0];
+        private static int personCounter = 0;
 
         public int Size()
         {
@@ -22,15 +23,17 @@ namespace ToDoIt_ConsoleApp.Data
 
         public Person FindById(int personId)
         {
-            return persons.Where(x => x.PersonId == personId).First();
+            return persons.Where(x => x.PersonId == personId).FirstOrDefault();
         }
 
         public Person CreatePerson(string firstname, string lastname)
         {
+            personCounter++;
+
             var personId = PersonSequencer.NextPersonId();
             var person = new Person(firstname, lastname, personId);
 
-            Array.Resize(ref persons, personId);
+            Array.Resize(ref persons, personCounter);
 
             for (int i = 0; i < persons.Length; i++)
             {
@@ -44,6 +47,7 @@ namespace ToDoIt_ConsoleApp.Data
         public void Clear()
         {
             persons = new Person[0];
+            personCounter = 0;
         }
     }
 }

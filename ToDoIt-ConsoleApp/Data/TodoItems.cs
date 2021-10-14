@@ -24,7 +24,7 @@ namespace ToDoIt_ConsoleApp.Data
         public Todo FindById(int todoId)
         {
             return todos.Where(x => x.TodoId == todoId).FirstOrDefault();
-        }
+       }
 
         public Todo CreateTodo(string description)
         {
@@ -48,6 +48,26 @@ namespace ToDoIt_ConsoleApp.Data
         {
             todos = new Todo[0];
             todoCounter = 0;
+        }
+
+        public Todo[] FindByDoneStatus(bool doneStatus)
+        {
+            return todos.Where(x => x.Done == doneStatus).ToArray();
+        }
+
+        public Todo[] FindByAssignee(int personId)
+        {
+            return todos.Where(x => x.Assignee.PersonId == personId).ToArray();
+        }
+
+        public Todo[] FindByAssignee(Person assignee)
+        {
+            return todos.Where(x => x.Assignee == assignee).ToArray();
+        }
+
+        public Todo[] FindUnassignedTodoItems()
+        {
+            return todos.Where(x => x.Assignee == null).ToArray();
         }
     }
 }

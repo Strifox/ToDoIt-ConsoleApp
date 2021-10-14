@@ -40,9 +40,7 @@ namespace UnitTest
         [Fact]
         public void NextTodoIdTest()
         {
-            //Increments Todo id
-            PersonSequencer.Reset();
-
+            TodoSequencer.Reset();
             TodoSequencer.NextTodoId();
 
             var personId = TodoSequencer.TodoId;

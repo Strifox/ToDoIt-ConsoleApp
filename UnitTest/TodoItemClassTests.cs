@@ -124,6 +124,21 @@ namespace UnitTest
             Assert.All(result, item => Assert.True(item.Assignee == null));
         }
 
+        [Fact]
+        public void RemoveTodoTest()
+        {
+            todoItem.Clear();
+            TodoSequencer.Reset();
+
+            var todo1 = todoItem.CreateTodo("Remove");
+            todoItem.CreateTodo("Next to do");
+            todoItem.CreateTodo("Train");
+
+            var result = todoItem.RemoveTodo(todo1);
+            var expected = 2;
+
+            Assert.Equal(expected, result.Length);
+        }
 
     }
 }

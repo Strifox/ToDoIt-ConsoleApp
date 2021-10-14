@@ -69,5 +69,10 @@ namespace ToDoIt_ConsoleApp.Data
         {
             return todos.Where(x => x.Assignee == null).ToArray();
         }
+
+        public Todo[] RemoveTodo(Todo todo)
+        {
+            return todos.Where(x => x != todo).ToArray();
+        }
     }
 }

@@ -49,5 +49,10 @@ namespace ToDoIt_ConsoleApp.Data
             persons = new Person[0];
             personCounter = 0;
         }
+
+        public Person[] RemovePerson(Person person)
+        {
+           return persons.Where(x => x != person).ToArray();
+        }
     }
 }

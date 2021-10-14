@@ -11,6 +11,8 @@ namespace UnitTest
         [Fact]
         public void ArrayLengthTest()
         {
+            people.Clear();
+
             var result = people.Size();
             var expected = 0;
 
@@ -57,10 +59,18 @@ namespace UnitTest
             Assert.Equal(expected, result);
         }
 
-        private void Clear()
+        [Fact]
+        public void RemovePersonTest()
         {
             people.Clear();
-            PersonSequencer.Reset();
+            var person1 = people.CreatePerson("Erik", "Karlsson");
+            people.CreatePerson("Boo", "Eriksson");
+            people.CreatePerson("Fredrik", "Holmgren");
+
+            var result = people.RemovePerson(person1);
+            var expected = 2;
+
+            Assert.Equal(expected, result.Length);
         }
     }
 }
